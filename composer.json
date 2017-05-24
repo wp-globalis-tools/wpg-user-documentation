@@ -1,16 +1,19 @@
 {
-    "name": "globalis/wpg-user-documentation",
-    "description": "Add a mardkown user documentation to your WordPress back-office",
-    "type": "wordpress-plugin",
-    "homepage": "https://github.com/wp-globalis-tools/wpg-user-documentation",
-		"authors": [
-			{
-				"name": "Pierre Dargham",
-				"homepage": "https://github.com/pierre-dargham/"
-			},
-			{
-				"name": "GLOBALIS media systems",
-				"homepage": "https://www.globalis-ms.com/"
-			}
-		]
+   "name":"globalis/wpg-user-documentation",
+   "description":"Add a mardkown user documentation to your WordPress back-office",
+   "type":"wordpress-plugin",
+   "homepage":"https://github.com/wp-globalis-tools/wpg-user-documentation",
+   "authors":[
+      {
+         "name":"Pierre Dargham",
+         "homepage":"https://github.com/pierre-dargham/"
+      },
+      {
+         "name":"GLOBALIS media systems",
+         "homepage":"https://www.globalis-ms.com/"
+      }
+   ],
+   "require":{
+      "league/commonmark":"^0.15.4"
+   }
 }
