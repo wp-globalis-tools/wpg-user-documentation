@@ -28,8 +28,7 @@ function setup_plugin() {
     add_action('admin_bar_menu', __NAMESPACE__ . '\\add_admin_bar_menu', 40);
     add_action('admin_menu', __NAMESPACE__ . '\\add_page', 10);
     add_action('admin_head', __NAMESPACE__ . '\\admin_bar_inline_css', 10, 1);
-
-    add_theme_support('admin-bar', ['callback' => __NAMESPACE__ . '\\admin_bar_inline_css']);
+    add_action('wp_head', __NAMESPACE__ . '\\admin_bar_inline_css', 10, 1);
 }
 
 function add_admin_bar_menu(\WP_Admin_Bar $wp_admin_bar) {
@@ -42,6 +41,9 @@ function add_admin_bar_menu(\WP_Admin_Bar $wp_admin_bar) {
 }
 
 function admin_bar_inline_css() {
+  if(!is_user_logged_in() || !is_admin_bar_showing()) {
+    return;
+  }
   ?>
     <style type="text/css" media="screen">
         #wpadminbar #wp-admin-bar-user-documentation > .ab-item::before { content: "\f223"; top: 2px; }
