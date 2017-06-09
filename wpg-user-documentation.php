@@ -60,7 +60,7 @@ function output_page() {
         ?>
         <style type="text/css">
             <?= $css ?>
-        </style>;
+        </style>
         <?php
     endif;
     ?>
