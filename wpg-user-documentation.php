@@ -7,7 +7,7 @@
  * Author URI:          https://www.globalis-ms.com/
  * License:             GPL2
  *
- * Version:             0.3.2
+ * Version:             0.3.3
  * Requires at least:   4.0.0
  * Tested up to:        4.7.8
  */
@@ -56,6 +56,13 @@ function add_page() {
 }
 
 function output_page() {
+    if($css = get_inline_css()) :
+        ?>
+        <style type="text/css">
+            <?= $css ?>
+        </style>;
+        <?php
+    endif;
     ?>
     <div id="user-documentation-content" class="wrap">
         <?= get_markdown() ?>
@@ -77,4 +84,8 @@ function get_markdown() {
     $markdown  = file_get_contents($path);
     $converter = new CommonMarkConverter();
     return $converter->convertToHtml($markdown);
+}
+
+function get_inline_css() {
+    return apply_filters('wpg-user-documentation\inline-css', '');
 }
